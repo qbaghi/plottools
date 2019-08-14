@@ -19,8 +19,8 @@ here = path.abspath(path.dirname(__file__))
 setup(
     name='plottools',
     version='1.0.0',
-    # description='A set of plotting utilities for spectral and time series analysis',
-    long_description=long_description,
+    description='A set of plotting utilities for spectral and time series analysis',
+    # long_description=long_description,
     long_description_content_type='text/markdown',
     url='https://github.com/qbaghi/plottools',
     author='Quentin Baghi',
