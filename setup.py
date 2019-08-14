@@ -17,12 +17,12 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 # Fields marked as "Optional" may be commented out.
 
 setup(
-    name='bayesdawn',
+    name='plottools',
     version='1.0.0',
-    description='A bayesian data augmentation algorithm',
+    description='A set of plotting utilities for spectral and time series analysis',
     long_description=long_description,
     long_description_content_type='text/markdown',
-    url='https://github.com/qbaghi/bayesdawn',
+    url='https://github.com/qbaghi/plottools',
     author='Quentin Baghi',
     author_email='quentin.baghi@protonmail.com',
     classifiers=[  # Optional
@@ -36,7 +36,7 @@ setup(
         'Topic :: Software Development :: Build Tools',
 
         # Pick your license as you wish
-        'License :: OSI Approved :: GNU License',
+        'License :: OSI Approved :: GNU License v3',
 
         # Python versions
         'Programming Language :: Python :: 3',
@@ -46,7 +46,7 @@ setup(
         'Programming Language :: Python :: 3.7',
     ],
 
-    keywords='bayesesian data analysis',
+    keywords='spectral and time series analysis',
     packages=find_packages(),
     python_requires='>=3.5',
     install_requires=['numpy', 'matplotlib'],
