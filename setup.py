@@ -9,8 +9,8 @@ from io import open
 
 here = path.abspath(path.dirname(__file__))
 # Get the long description from the README file
-with open(path.join(here, 'README.md'), encoding='utf-8') as f:
-    long_description = f.read()
+# with open(path.join(here, 'README.md'), encoding='utf-8') as f:
+#     long_description = f.read()
 
 
 # Arguments marked as "Required" below must be included for upload to PyPI.
@@ -19,7 +19,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 setup(
     name='plottools',
     version='1.0.0',
-    description='A set of plotting utilities for spectral and time series analysis',
+    # description='A set of plotting utilities for spectral and time series analysis',
     long_description=long_description,
     long_description_content_type='text/markdown',
     url='https://github.com/qbaghi/plottools',
