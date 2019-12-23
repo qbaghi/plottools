@@ -4,11 +4,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 GRAPH_N = 0
+from . import presets
 
 
 class fplot:
 
-    def __init__(self,plotconf = 'time'):
+    def __init__(self, plotconf='time'):
 
         self.title=None
         self.ftsize = 19
@@ -37,39 +38,8 @@ class fplot:
         self.draw_frame = False
         self.subplotnum = 111
 
-        self.ticks_font = self.plotconfig(cname=plotconf)
+        self.ticks_font = presets.plotconfig(ctype=plotconf, lbsize=self.lbsize, lgsize=self.lgsize)
 
-
-    def plotconfig(self,cname = 'frequency'):
-
-        mpl.rcdefaults()
-        mpl.rcParams['font.family'] = self.fontfamily
-        ticks_font = mpl.font_manager.FontProperties(family=self.fontfamily,
-        style='normal',
-        weight='normal',
-        stretch='normal',
-        size = self.lbsize)
-        mpl.rcParams['text.usetex'] = True
-        mpl.rcParams['xtick.major.size'] = 6
-        mpl.rcParams['ytick.major.size'] = 6
-        mpl.rcParams['xtick.minor.size'] = 3
-        mpl.rcParams['ytick.minor.size'] = 3
-        #mpl.rcParams['mathtext.cal'] = 'monospace'
-        #mpl.rcParams['mathtext.rm'] = 'monospace'
-        mpl.rcParams['xtick.major.width']=1
-        mpl.rcParams['ytick.major.width']=1
-        mpl.rcParams['xtick.minor.width']=1
-        mpl.rcParams['ytick.minor.width'] =1
-        mpl.rcParams['lines.markeredgewidth']=1
-        mpl.rcParams['legend.handletextpad']=0.3
-        mpl.rcParams['legend.fontsize']= self.lgsize
-        mpl.rcParams['figure.figsize'] = 8,6
-        #mpl.rcParams['text.usetex'] = True
-        mpl.rcParams['xtick.labelsize']=self.lbsize
-        mpl.rcParams['ytick.labelsize']=self.lbsize
-        # mpl.rcParams['figure.autolayout'] = True
-
-        return ticks_font
 
     def plot(self, X, Y, colors, linewidths, labels, linestyles=None, zorders=None, fig = None, plot_type='lines'):
 
