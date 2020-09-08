@@ -11,10 +11,12 @@ from itertools import cycle, islice
 # sns.set_palette(sns.color_palette(flatui, 7))
 
 
-def plot_series(dates, data_list, labels, colors=None, linewidths=None, linestyles=None,
-                subplots=False, xlabel='Time [s]', ylabel='Amplitude', logx=False, logy=False):
+def plot_series(dates, data_list, labels, colors=None, linewidths=None,
+                linestyles=None,
+                subplots=False, xlabel='Time [s]', ylabel='Amplitude',
+                logx=False, logy=False):
 
-    ticks_font = presets.plotconfig(ctype='time', lbsize=16, lgsize=14)
+    ticks_font = presets.plotconfig(lbsize=16, lgsize=14)
 
     values = np.array(data_list).T
     df = pd.DataFrame(values, dates, columns=labels)
@@ -32,7 +34,8 @@ def plot_series(dates, data_list, labels, colors=None, linewidths=None, linestyl
         linestyles = ['-' for i in range(len(df))]
 
     for col, style, lw, clr in zip(df.columns, linestyles, linewidths, colors):
-        df[col].plot(subplots=subplots, style=style, lw=lw, color=clr, logx=logx, logy=logy)
+        df[col].plot(subplots=subplots, style=style, lw=lw, color=clr,
+                     logx=logx, logy=logy)
     # df[labels].plot(subplots=subplots, ax=axes, color=colors, linewidth=linewidths)
 
     if subplots:
@@ -51,7 +54,9 @@ def plot_series(dates, data_list, labels, colors=None, linewidths=None, linestyl
             ax.set_xlabel(ylabel)
 
             # add cool legend
-            ax.legend(loc='upper left', fontsize=11, frameon=True).get_frame().set_edgecolor('black')
+            ax.legend(loc='upper left',
+                      fontsize=11,
+                      frameon=True).get_frame().set_edgecolor('black')
 
             # add more ticks
             ax.minorticks_on()
@@ -61,7 +66,9 @@ def plot_series(dates, data_list, labels, colors=None, linewidths=None, linestyl
         axes.set_xlabel(xlabel)
 
         # add cool legend
-        axes.legend(loc='upper left', fontsize=11, frameon=True).get_frame().set_edgecolor('black')
+        axes.legend(loc='upper left',
+                    fontsize=11,
+                    frameon=True).get_frame().set_edgecolor('black')
         axes.minorticks_on()
         # now to use tight layout
     plt.tight_layout()
