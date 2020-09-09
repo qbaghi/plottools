@@ -22,19 +22,27 @@ from ligo.skymap import version, kde, io
 import pickle
 import os
 from astropy.time import Time
+from optparse import OptionParser
 
 
 if __name__ == '__main__':
 
-    # --------------------------------------------------------------------------
+    # -------------------------------------------------------------------------
     # Load simulation informations
-    # --------------------------------------------------------------------------
+    # -------------------------------------------------------------------------
+    parser = OptionParser(usage="usage: %prog [options] YYY.txt",
+                          version="12.02.2020, Quentin Baghi")
+    (options, args) = parser.parse_args()
+    if not args:
+        fpath = "/Users/qbaghi/Codes/python/pylisa/pylisa-dev/data/"
+        input_prefix = "2020-07-13_21h09-54_04_signal_delay_tdi_unequalnoises"
+        input_path = fpath + input_prefix
+    else:
+        input_path = args[0]
     # File paths
-    fpath = "/Users/qbaghi/Codes/python/pylisa/pylisa-dev/data/"
     # input_prefix = "2020-07-22_09h53-46_04_signal_delay_pci_equalnoises"
-    input_prefix = "2020-07-13_21h09-54_04_signal_delay_tdi_unequalnoises"
-    chain_path = fpath + input_prefix + '_chain.p'
-    lprob_path = fpath + input_prefix + '_lnprob.p'
+    chain_path = input_path + '_chain.p'
+    lprob_path = input_path + '_lnprob.p'
     # Load sample chains
     chain_file = open(chain_path, 'rb')
     chain = pickle.load(chain_file)
