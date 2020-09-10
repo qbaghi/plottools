@@ -88,8 +88,9 @@ if __name__ == '__main__':
     # Write the skymap
     # -------------------------------------------------------------------------    
     # Prepare output
-    outdir = '../data/'
-    fitsoutname = input_prefix + "_skymap.fits.gz"
+    # outdir = '../data/'
+    # fitsoutname = input_prefix + "_skymap.fits.gz"
+    fitsoutname = input_path + "_skymap.fits.gz"
     enable_multiresolution = True
     # convert angles in right ascension and declination
     pts = np.column_stack((coords_cel.ra.rad, coords_cel.dec.rad))
@@ -98,7 +99,9 @@ if __name__ == '__main__':
     skypost = kde.Clustered2DSkyKDE(pts)
     
     # Pickle the skyposterior object
-    with open(os.path.join(outdir, 'skypost.obj'), 'wb') as out:
+    # with open(os.path.join(outdir, 'skypost.obj'), 'wb') as out:
+    #     pickle.dump(skypost, out)
+    with open(input_path + 'skypost.obj', 'wb') as out:
         pickle.dump(skypost, out)
 
     # Making skymap
@@ -114,8 +117,8 @@ if __name__ == '__main__':
     hpmap.meta['gps_creation_time'] = Time.now().gps
 
     # Write skymap to file if needed
-    f_name = os.path.join(outdir, fitsoutname)
-    io.fits.write_sky_map(f_name, 
+    # f_name = os.path.join(outdir, fitsoutname)
+    io.fits.write_sky_map(fitsoutname, 
                           hpmap, nest=True,
                           vcs_version='foo 1.0', vcs_revision='bar',
                           build_date='2018-01-01T00:00:00')
