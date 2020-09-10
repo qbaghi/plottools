@@ -118,7 +118,8 @@ if __name__ == '__main__':
 
     # Write skymap to file if needed
     # f_name = os.path.join(outdir, fitsoutname)
-    io.fits.write_sky_map(fitsoutname, 
+    f_name = fitsoutname
+    io.fits.write_sky_map(f_name, 
                           hpmap, nest=True,
                           vcs_version='foo 1.0', vcs_revision='bar',
                           build_date='2018-01-01T00:00:00')
