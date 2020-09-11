@@ -101,7 +101,7 @@ if __name__ == '__main__':
     # Pickle the skyposterior object
     # with open(os.path.join(outdir, 'skypost.obj'), 'wb') as out:
     #     pickle.dump(skypost, out)
-    with open(input_path + 'skypost.obj', 'wb') as out:
+    with open(input_path + '_skypost.obj', 'wb') as out:
         pickle.dump(skypost, out)
 
     # Making skymap
@@ -118,7 +118,7 @@ if __name__ == '__main__':
 
     # Write skymap to file if needed
     # f_name = os.path.join(outdir, fitsoutname)
-    f_name = fitsoutname
+    f_name = fitsoutname 
     io.fits.write_sky_map(f_name, 
                           hpmap, nest=True,
                           vcs_version='foo 1.0', vcs_revision='bar',
