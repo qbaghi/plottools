@@ -14,7 +14,7 @@ from itertools import cycle, islice
 def plot_series(dates, data_list, labels, colors=None, linewidths=None,
                 linestyles=None,
                 subplots=False, xlabel='Time [s]', ylabel='Amplitude',
-                logx=False, logy=False):
+                logx=False, logy=False, legend_loc='upper left'):
 
     ticks_font = presets.plotconfig(lbsize=16, lgsize=14)
 
@@ -54,7 +54,7 @@ def plot_series(dates, data_list, labels, colors=None, linewidths=None,
             ax.set_xlabel(ylabel)
 
             # add cool legend
-            ax.legend(loc='upper left',
+            ax.legend(loc=legend_loc,
                       fontsize=11,
                       frameon=True).get_frame().set_edgecolor('black')
 
@@ -66,7 +66,7 @@ def plot_series(dates, data_list, labels, colors=None, linewidths=None,
         axes.set_xlabel(xlabel)
 
         # add cool legend
-        axes.legend(loc='upper left',
+        axes.legend(loc=legend_loc,
                     fontsize=11,
                     frameon=True).get_frame().set_edgecolor('black')
         axes.minorticks_on()
